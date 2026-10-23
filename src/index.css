@@ -1,1 +1,77 @@
 @import "tailwindcss";
+
+/* Custom slider styles */
+.slider-custom {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  border-radius: 9999px;
+}
+
+.slider-custom::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0050cf;
+  cursor: pointer;
+  border: 4px solid white;
+  box-shadow: 0 2px 8px rgba(0, 80, 207, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.slider-custom::-webkit-slider-thumb:active {
+  transform: scale(1.2);
+}
+
+.slider-custom::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0050cf;
+  cursor: pointer;
+  border: 4px solid white;
+  box-shadow: 0 2px 8px rgba(0, 80, 207, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.slider-custom::-moz-range-thumb:active {
+  transform: scale(1.2);
+}
+
+/* Slider animation on first load */
+@keyframes sliderPulse {
+  0%, 100% { box-shadow: 0 2px 8px rgba(0, 80, 207, 0.4); }
+  50% { box-shadow: 0 2px 16px rgba(0, 80, 207, 0.7); }
+}
+
+.slider-animated::-webkit-slider-thumb {
+  animation: sliderPulse 1.5s ease-in-out 1;
+}
+
+/* Smooth transitions */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 9999px;
+}
+
+/* Safe area for mobile */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
